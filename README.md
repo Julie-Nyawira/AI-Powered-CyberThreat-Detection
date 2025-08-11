@@ -1,7 +1,7 @@
-# AI-Powered-CyberThreat-Detection
+
 # AI-Powered Cyber Threat Detection Using Machine Learning on Network Traffic Data
 
-## 1. Business Understanding
+## Business Understanding
 
 Cybersecurity threats are increasing rapidly in both frequency and sophistication. Traditional rule-based Intrusion Detection Systems (IDS) struggle to detect novel or zero-day attacks and are prone to generating excessive false negatives. Given the growing complexity of network traffic and threat vectors, organizations need intelligent, real-time solutions.
 
@@ -9,7 +9,7 @@ Cybersecurity threats are increasing rapidly in both frequency and sophisticatio
 
 According to Cybersecurity Ventures, global cybercrime damages are expected to reach **$10.5 trillion annually by 2025**, making proactive and intelligent cybersecurity systems essential for sectors like healthcare, finance, and critical infrastructure.
 
-## 2. Objectives
+## Objectives
 
 - Explore the distribution of attack types to understand their frequency and severity.
 - Train supervised machine learning models to classify normal and malicious traffic.
@@ -17,7 +17,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 - Provide clear, interpretable insights using **LIME** for model predictions.
 - Simulate real-time detection with stream-based tools for a production-ready IDS.
 
-## 3. Data Understanding
+## Data Understanding
 
 - **Dataset**: UNSW-NB15
 - **Source**: Australian Centre for Cyber Security (ACCS), UNSW Canberra
@@ -28,7 +28,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 - **Normal Traffic**: 1 class
 - **Total Final Features Used**: 42
 
-## 4. Data Preparation
+## Data Preparation
 
 - Dropped Non-Generalizable Features: IPs, ports, timestamps (e.g., `saddr`, `stime`)
 - Encoding: One-hot encoding for `proto`, `state`, `service`
@@ -36,7 +36,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 - Class Imbalance: Addressed using class weights and stratified sampling
 - Split Strategy: Training (70%), Validation (30%)
 
-## 5. Modeling
+## Modeling
 
 ### Unsupervised Learning
 
@@ -54,7 +54,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 | XGBoost (Tuned)     | Best overall model — high recall, balanced performance |
 | Neural Network (MLP)| Stable training, good recall, no overfitting observed |
 
-## 6. Evaluation & Interpretation
+## Evaluation & Interpretation
 
 - **Metrics Used**: Accuracy, Precision, **Recall (primary)**, F1 Score, Confusion Matrix
 - **Best Model**: Tuned XGBoost
@@ -62,7 +62,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
   - Features like `ct_state_ttl`, `state_CON`, and `ct_dst_sport_ltm` were most influential
   - Strong diagonal values in the confusion matrix, especially for high-frequency classes
 
-## 7. Real-Time Simulation (Planned)
+## Real-Time Simulation (Planned)
 
 - Deployment Tools: Streamlit or FastAPI
 - Real-time simulation via replayed `.pcap` files or streaming tools like River
@@ -72,7 +72,7 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 - Reconnaissance → Redirect to honeypots
 - Worms → Disconnect infected host
 
-## 8. Limitations
+## Limitations
 
 1. **Class Imbalance**: Low support for classes like Worms and Backdoors
 2. **Anomaly Detection Challenges**: High contamination ratio limits detection efficiency
@@ -80,17 +80,16 @@ According to Cybersecurity Ventures, global cybercrime damages are expected to r
 4. **No Adversarial Testing**
 
 
-## 9. Conclusions
+## Conclusions
 
 - Supervised models outperformed unsupervised methods
 - Tuned XGBoost achieved the best trade-off between generalization and recall
 - LIME boosted model transparency for cybersecurity professionals
 - Low-frequency attacks remain a challenge
 
-## 10. Recommendations
+## Recommendations
 
-1. Use **SMOTE** to balance class distribution.
-2. Expand interpretability with **SHAP**.
-3. Finalize streaming integration with River or Kafka.
-4. Try ensemble learning (XGBoost + Neural Net).
-5. Add automated mitigation (e.g., IP blocking) in deployment.
+1. Expand interpretability with **SHAP**.
+2. Finalize streaming integration with River or Kafka.
+3. Try ensemble learning (XGBoost + Neural Net).
+4. Add automated mitigation (e.g., IP blocking) in deployment.
